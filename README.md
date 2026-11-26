@@ -101,14 +101,6 @@ The principle is simple: **show the actual law before generating any answer.**
 
 ## 🔧 System design
 
-**Design principles**
-
-1. **Grounded by default.** Every result is traceable to Act text.
-2. **Fail closed.** Below the score gate, the system answers "not found".
-3. **No hardcoded legal rules.** No per-question rules or keyword maps.
-4. **Local and cheap.** Ollama and open models that run on CPU.
-5. **Measure before tuning.** Evaluation set first, tuning after.
-
 **Current flow**
 
 | Step | What happens | Model / tool |
@@ -127,18 +119,3 @@ The principle is simple: **show the actual law before generating any answer.**
 - FastAPI service (`/clauses`, `/answer`, `/health`) with Streamlit as a thin client
 - Text PDF upload, then OCR for scanned notices
 - Docker and Ollama compose for deployment
-
-## ⚠️ Limitations
-
-- Retrieval is not yet calibrated. Sometimes the wrong section ranks first.
-- Answers are currently in Hinglish or English. Devanagari grounded answers are planned.
-- PDF extraction can leave some text noise.
-- Evaluation numbers are not published yet.
-
-## ⚖️ Disclaimer
-
-This tool provides general legal information. It is not a substitute for a lawyer's advice. Before taking any legal action, contact a Legal Aid Clinic or a qualified lawyer.
-
-## 📄 License
-
-TBD
